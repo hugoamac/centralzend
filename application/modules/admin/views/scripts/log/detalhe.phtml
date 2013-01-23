@@ -1,0 +1,40 @@
+<? if ($this->log): ?>
+
+    <table cellpadding="0" cellspacing="0" class="Lista">
+        <thead>
+            <tr>
+                <th colspan="2">Dados</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: left">Código</td>
+                <td style="text-align: left"><?= $this->log["id"] ?></td>
+            </tr>
+            <tr>
+                <td style="text-align: left">Operação</td>
+                <td style="text-align: left"><?= Application_Model_Log::getInstance()->getOperacao($this->log["id_operacao"]) ?></td>
+            </tr>
+            <tr>
+                <td style="text-align: left">Usuário</td>
+                <td style="text-align: left"><?= Application_Model_Log::getInstance()->getUsuario($this->log["id_usuario"]) ?></td>
+            </tr>
+            <tr>
+                <td style="text-align: left">Tabela</td>
+                <td style="text-align: left"><?= $this->log["tabela"] ?></td>
+            </tr>
+            <tr>
+                <td style="text-align: left">Informação</td>
+                <td style="text-align: left"><?= nl2br($this->log["dados"]) ?></td>
+            </tr>
+            <tr>
+                <td style="text-align: left">Data</td>
+                <td style="text-align: left"><?= Util_Helper_Helper::formatData("d/m/Y \a\s H:i:s", $this->log["data_criacao"]) ?></td>
+            </tr>
+            </tr>
+        </tbody>
+    </table>
+
+<? else: ?>
+    <p>Ops!  nenhum log registrado.</p>
+<? endif; ?>

@@ -1,0 +1,20 @@
+
+<form method="<?= $this->form->getMethod() ?>" action="<?= $this->form->getAction() ?>" class="Form" id="form">
+    <h2>Editar</h2>
+    <dl>
+        <dt><label for="id_grupo"><?= $this->form->id_grupo->getLabel() ?></label></dt>
+        <dd><?= $this->form->id_grupo ?></dd>
+        <dt><label for="nome"><?= $this->form->nome->getLabel() ?></label></dt>
+        <dd><?= $this->form->nome ?></dd>
+        <dt><label for="login"><?= $this->form->login->getLabel() ?></label></dt>
+        <dd><?= $this->form->login ?></dd>
+        <dt><label for="email"><?= $this->form->email->getLabel() ?></label></dt>
+        <dd><?= $this->form->email ?></dd>
+        <dt><label for="senha"><?= $this->form->senha->getLabel() ?></label></dt>
+        <dd><?= $this->form->senha ?></dd>
+        <dt><label for="senha2"><?= $this->form->senha2->getLabel() ?></label></dt>
+        <dd><?= $this->form->senha2 ?></dd>
+        <dt></dt>
+        <dd><?= $this->form->submit ?></dd>
+    </dl>
+</form>

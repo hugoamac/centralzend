@@ -1,0 +1,17 @@
+
+<? if (count($this->avisos) > 0): ?>
+
+    <? foreach ($this->avisos as $aviso): ?>
+
+        <? if ($aviso[0] == "sucesso"): ?>
+            <p class="aviso_sucesso"><?= $aviso[1] ?></p>
+        <? elseif ($aviso[0] == "erro"): ?>
+            <p class="aviso_erro"><?= $aviso[1] ?></p>
+        <? elseif ($aviso[0] == "alerta"): ?>
+            <p class="aviso_alerta"><?= $aviso[1] ?></p>
+        <? endif; ?>
+
+    <? endforeach; ?>
+<? else: ?>
+    <p class="aviso_alerta" style="display: none"></p>
+<? endif; ?>

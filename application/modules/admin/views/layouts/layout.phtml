@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <?= $this->headMeta() ?>
+        <?= $this->headTitle() ?>
+        <link href="<?= $this->baseUrl('css/stilo_adm.css') ?>" rel="stylesheet"/>
+        <script src="/library_js/jquery.js" type="text/javascript"></script>
+        <script src="/library_js/jquery-validate/jquery.validate.js" type="text/javascript"></script>
+        <script src="/scripts_js/admin/admin_geral.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var BASEURL = "<?= $this->baseUrl('/') ?>" ;
+        </script>
+    </head>
+
+    <body>
+        <div id="header">
+            <span><a href="<?= $this->url(array('controller' => 'index', 'action' => 'index', 'module' => 'admin'), null, 1) ?>">Área Administrativa</a></span>
+            <p>
+                <? if (Zend_Auth::getInstance()->setStorage(new Zend_Auth_Storage_Session("admin"))->hasIdentity()): ?>
+                    Olá <?= Zend_Auth::getInstance()->setStorage(new Zend_Auth_Storage_Session("admin"))->getIdentity()->nome ?> |
+                    <a href="#" title="minha conta">minha conta</a> |
+                    <a href="<?= $this->url(array('controller' => 'index', 'action' => 'logout', 'module' => 'admin'), null, 1) ?>" title="sair">Sair</a>
+                <? endif; ?>
+            </p>
+        </div>
+        <div id="container">
+            <div id="sidebar">
+                <dl>
+                    <dt><img src="/images/admin/icon_sys.png" class="icon" />Controle de Acesso</dt>
+                    <dd><a href="<?= $this->url(array('controller' => 'usuario', 'module' => 'admin'), null, 1) ?>">Usuários</a></dd>
+                    <dd><a href="<?= $this->url(array('controller' => 'grupo', 'module' => 'admin'), null, 1) ?>">Grupos de Usuário</a></dd>
+                    <dd><a href="<?= $this->url(array('controller' => 'recurso', 'module' => 'admin'), null, 1) ?>">Recursos</a></dd>
+                    <dd><a href="<?= $this->url(array('controller' => 'log', 'module' => 'admin'), null, 1) ?>">Log</a></dd>
+                </dl>
+            </div>
+            <div id="content">
+                <div id="breadcrumb">
+                    <ol>
+                        <li><a href="#"><img src="/images/admin/home.png" alt="Home" class="home" /></a></li>
+                        <li><a href="#">Controle de Acesso</a></li>
+                        <li><a href="#">Grupos</a></li>
+                    </ol>
+                </div>
+                <h1><?= $this->titulo ?></h1>
+                <?= $this->partial('includes/mensagens_alerta.phtml', 'admin', array('avisos' => $this->messages)); ?>
+                <?= $this->Layout()->content ?>
+                <!-- <h1>Grupos</h1>
+                 <p class="aviso_sucesso">Operação realizada com sucesso!</p>
+                 <p class="aviso_erro">Ops! não foi possível realizar a operação.</p>
+                 <p class="aviso_alerta">Ops! os campos em destaques são obrigatórios.</p>
+                 <form method="post" action="#" class="Form">
+                     <h2>Adicionar</h2>
+                     <dl>
+                         <dt>
+                         <label for="nome">Nome:</label>
+                         </dt>
+                         <dd>
+                             <input type="text" name="nome"/>
+                         </dd>
+                         <dt>
+                         <label for="estado">Estado:</label>
+                         </dt>
+                         <dd>
+                             <div class="styleCombobox">
+                                 <select name="estado" title="selecione">
+                                     <option>Pará</option>
+                                     <option>São Paulo</option>
+                                     <option>Rio de Janeiro</option>
+                                     <option>Porto Alegre</option>
+                                     <option>Paraná</option>
+                                 </select>
+                             </div>
+                         </dd>
+                         <dt>
+                         <label for="nome">Descrição:</label>
+                         </dt>
+                         <dd>
+                             <textarea name="nome"></textarea>
+                         </dd>
+                         <dt>
+ 
+                         </dt>
+                         <dd>
+                             <button type="submit">Salvar</button>
+                         </dd>
+                     </dl>
+                 </form>
+                 <table cellpadding="0" cellspacing="0" border="0" class="Lista">
+                     <thead>
+                         <tr>
+                             <th width="3%">Selecionar</th>
+                             <th>Grupo</th>
+                             <th>Descrição</th>
+                             <th>Opções</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                             <td width="3%"><input type="checkbox"/></td>
+                             <td>Grupo</td>
+                             <td>Descrição</td>
+                             <td>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_detail.png" class="icon" title="detalhe"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_edit.png" class="icon" title="editar"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_delete.png" class="icon" title="excluir"/>
+                                 </a>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td><input type="checkbox"/></td>
+                             <td>Grupo</td>
+                             <td>Descrição</td>
+                             <td>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_detail.png" class="icon" title="detalhe"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_edit.png" class="icon" title="editar"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_delete.png" class="icon" title="excluir"/>
+                                 </a>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td><input type="checkbox"/></td>
+                             <td>Grupo</td>
+                             <td>Descrição</td>
+                             <td>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_detail.png" class="icon" title="detalhe"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_edit.png" class="icon" title="editar"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_delete.png" class="icon" title="excluir"/>
+                                 </a>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td><input type="checkbox"/></td>
+                             <td>Grupo</td>
+                             <td>Descrição</td>
+                             <td>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_detail.png" class="icon" title="detalhe"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_edit.png" class="icon" title="editar"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_delete.png" class="icon" title="excluir"/>
+                                 </a>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td><input type="checkbox"/></td>
+                             <td>Grupo</td>
+                             <td>Descrição</td>
+                             <td>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_detail.png" class="icon" title="detalhe"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_edit.png" class="icon" title="editar"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_delete.png" class="icon" title="excluir"/>
+                                 </a>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td><input type="checkbox"/></td>
+                             <td>Grupo</td>
+                             <td>Descrição</td>
+                             <td>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_detail.png" class="icon" title="detalhe"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_edit.png" class="icon" title="editar"/>
+                                 </a>
+                                 <a href="#">
+                                     <img src="/layout_admin/images/admin/icon_delete.png" class="icon" title="excluir"/>
+                                 </a>
+                             </td>
+                         </tr>
+                     </tbody>
+                 </table>-->
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div id="footer">
+            www.meusite.com.br
+        </div>
+    </body>
+</html>

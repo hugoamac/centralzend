@@ -1,0 +1,38 @@
+<? if (count($this->logs) > 0): ?>
+    <p>
+        <b>Foi encontrado <?= count($this->logs) ?> log(s).</b>
+    </p>
+
+    <table cellpadding="0" cellspacing="0" class="Lista">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Operação</th>
+                <th>Usuário</th>
+                <th>Tabela</th>
+                <th>Data</th>
+                <th>Opção</th>
+            </tr>
+        </thead>
+        <tbody>
+            <? foreach ($this->logs as $log): ?>
+                <tr>
+                    <td><?= $log['id'] ?></td>
+                    <td><?= Application_Model_Log::getInstance()->getOperacao($log['id_operacao']) ?></td>
+                    <td><?= Application_Model_Log::getInstance()->getUsuario($log['id_usuario']) ?></td>
+                    <td><?= $log['tabela'] ?></td>
+
+                    <td><?= Util_Helper_Helper::formatData("d/m/Y",$log['data_criacao']) ?></td>
+                    <td>
+                        <a href="<?=$this->url(array("module"=>"admin","controller"=>"log","action"=>"detalhe","id"=>$log['id'] ),null,1)?>" id="<?= $log['id'] ?>" class="Botao">Detalhe</a>
+                    </td>
+
+
+                </tr>
+            <? endforeach; ?>
+        </tbody>
+    </table>
+
+<? else: ?>
+    <p>Ops! No momento não há nenhum log registrado.</p>
+<? endif; ?>

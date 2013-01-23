@@ -1,0 +1,45 @@
+<?
+$modelTransacao = new Application_Model_Transacao();
+$modelPermissao = new Application_Model_Permissao();
+?>
+
+<h2>Grupo <?= Application_Model_Grupo::getNome($this->idgrupo) ?></h2>
+
+<? if (count($this->recursos) > 0): ?>
+
+    <form method="post" action="<?= $this->url(array("module" => "admin", "controller" => "permissao", "action" => "add"), null, 1) ?>" class="Form" style="width:40%">
+
+        <? foreach ($this->recursos as $recurso): ?>
+
+            <? $vvTransacao = $modelTransacao->recuperaTodos("id_recurso=" . $recurso["id"]); ?>
+
+            <h2><?= $recurso["area"] ?> - <?= $recurso["nome"] ?></h2>
+
+            <table cellpadding="0" cellspacing="0" class="Lista" style="border:none">
+                <tbody>
+                    <? foreach ($vvTransacao as $vsTransacao): ?>
+
+                        <? $vsPermissao = $modelPermissao->recuperaPor("id_transacao=" . (int) $vsTransacao["id"] . " and id_grupo=" . (int) $this->idgrupo); ?>                                           
+                        <tr>
+                            <td style="width:5%">
+                                <input type="checkbox" name="id_transacao[]" value="<?= $vsTransacao["id"] ?>" <?= (count($vsPermissao) && $vsTransacao["id"] == $vsPermissao["id_transacao"] ) ? "checked" : "" ?>/>
+                            </td>
+                            <td style="text-align:left">
+                                <?= $vsTransacao["transacao"] ?>
+                            </td>
+                        </tr>
+                    <? endforeach; ?>
+                </tbody>
+            </table>
+
+        <? endforeach; ?>
+        
+        <input type="hidden" name="id_grupo" value="<?= $this->idgrupo ?>"/>
+        <button type="submit" style="margin: 10px;">Salvar</button>
+       
+    </form>
+
+<? else: ?>
+    <p>Ops! Nenhum Recurso registrado.</p>
+<? endif; ?>
+

@@ -1,0 +1,35 @@
+<a class="Botao" href="<?= $this->url(array('controller' => 'grupo', 'action' => 'add', 'module' => 'admin'), null, 1) ?>" title="adicionar grupo">Adicionar grupo</a>
+<br/><br/>
+
+<? if (count($this->grupos) > 0): ?>
+    <p>
+        <b>Foi encontrado <?= count($this->grupos) ?> Grupo(s).</b>
+    </p>
+
+    <table cellpadding="0" cellspacing="0" class="Lista">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <? foreach ($this->grupos as $grupo): ?>
+                <tr>
+                    <td><?= $grupo['id'] ?></td>
+                    <td><?= $grupo['nome'] ?></td>
+                    <th>
+                        <a  href="<?= $this->url(array('module' => 'admin', 'controller' => 'grupo', 'action' => 'edit', 'id' => $grupo['id']), null, 1) ?>"><img src="/images/admin/icon_edit.png" class="icon" title="editar"/></a>
+                        <a  href="<?= $this->url(array('module' => 'admin', 'controller' => 'permissao', 'action' => 'index', 'id' => $grupo['id']), null, 1) ?>"><img src="/images/admin/icon_permission.png" class="icon" title="editar permissão"/></a>
+                        <a  class="excluir" href="<?= $this->url(array('module' => 'admin', 'controller' => 'grupo', 'action' => 'delete', 'id' => $grupo['id']), null, 1) ?>"><img src="/images/admin/icon_delete.png" class="icon" title="excluir"/></a>
+                    </th>
+                </tr>
+            <? endforeach; ?>
+        </tbody>
+    </table>
+
+<? else: ?>
+    <p>Ops! No momento não há nenhum grupo registrado.</p>
+<? endif; ?>
+

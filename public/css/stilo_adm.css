@@ -1,0 +1,437 @@
+/* CSS Document */
+*{padding:0px;margin:0px;}
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;	
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+#header{
+    width:100%;
+    height:60px;
+    background:#EAEAEA;
+    color:#000;
+
+    background:#EAEAEA;
+    background-repeat:repeat-x;
+    background-image:url('/images/admin/guide.gif');	
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#EAEAEA');
+    background: -webkit-gradient(linear, left top, left bottom, from(#FAFAFA), to(#EAEAEA));
+    background: -moz-linear-gradient(#FAFAFA, #EAEAEA) repeat scroll 0 0 transparent;
+
+    border-bottom: 1px solid #CACACA;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+#header span{
+
+    font-family:arial narrow;
+    text-shadow:0px 1px 1px #fff;
+    font-size:25px;
+    font-weight:bold;
+    position:relative;
+    top:12px;
+    left:20px;	
+}
+#header p{
+    float:right;
+    position:relative;
+    top:21px;
+    right:24px;	
+    font-weight:bold;
+}
+#header p a{
+
+    text-decoration:none;
+    color:#000;	
+}
+#header p a:hover{
+    color:#2295ab;
+}
+#container{
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    min-height:500px;	
+    margin-top:20px;
+}
+#sidebar{
+    width:19%;
+    height:800px;
+    min-height:1000px;
+    background:#fff;
+    float:left;	
+
+}
+#sidebar dl{
+
+    margin:5px;	
+    padding:0px 0px 10px 0px;
+    border-radius: 5px ;
+    border:solid 1px #dedbdb;
+    background: none repeat scroll 0 0 #FAFAFB;
+
+}
+
+#sidebar dl dt{
+    font-family:Arial Narrow, Helvetica, sans-serif;
+    text-align:center;
+
+    background:#E0E0E0;
+    background-repeat:repeat-x;
+    background-image:url('/images/admin/guide.gif');	
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E0E0E0');
+    background: -webkit-gradient(linear, left top, left bottom, from(#FAFAFA), to(#E0E0E0));
+    background: -moz-linear-gradient(#FAFAFA, #E0E0E0) repeat scroll 0 0 transparent;
+
+    border-bottom: 1px solid #CCCCCC;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    color: #222222;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    padding: 4px 0px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    border-radius: 5px 5px 0px 0px;
+}
+#sidebar dl dd{
+    margin:0 5px;		
+    border-bottom: 1px solid #EEEEEE;
+    border-top: 1px solid #FFFFFF;
+
+}
+#sidebar dl dd a{
+    text-decoration:none;
+    color: #4183C4;
+    display:block;
+    padding:10px 10px;		
+}
+#sidebar dl dd a:hover{
+    background: none repeat scroll 0 0 #FDFDFE;
+
+
+}
+#content{
+    width:80%;
+    float:right;
+
+}
+#content h1{
+    font-family:Arial, Helvetica, sans-serif;
+    padding-bottom:10px;
+    border-bottom:dotted 1px #999;
+    margin-bottom: 10px;
+    text-shadow: 0px 1px 1px #ddd;
+
+}
+
+#breadcrumb{
+
+    background:#E0E0E0;
+    background-repeat:repeat-x;
+    background-image:url('/images/admin/guide.gif');	
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E0E0E0');
+    background: -webkit-gradient(linear, left top, left bottom, from(#FAFAFA), to(#E0E0E0));
+    background: -moz-linear-gradient(#FAFAFA, #E0E0E0) repeat scroll 0 0 transparent;
+
+    border-bottom: 1px solid #CCCCCC;
+    width:99%;
+    height:30px;
+    margin:5px 0px;
+    border:solid 1px #dedbdb;
+    border-radius:2px;
+    font: 11px Arial, Helvetica, sans-serif;
+    line-height:30px;
+    overflow:hidden;  
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.1);  	
+}
+#breadcrumb ol{
+    list-style-type:none;	
+}
+#breadcrumb ol li{
+    float:left;
+    padding-left:10px;
+}
+#breadcrumb ol li a{
+
+    color:#333;
+    text-shadow:1px 1px 1px #fff;	
+    height:30px;
+    display:block;
+    background-image:url('/images/admin/bc_separator.png'); 
+    background-repeat:no-repeat; 
+    background-position:right;
+    padding-right: 15px;
+    text-decoration: none;
+
+}
+#breadcrumb ol li a:hover{	
+    color:#2295ab;
+
+}
+.home
+{
+    border:none;
+    margin: 8px 0px;
+}
+#footer{
+    margin-top:20px;
+    width:100%;
+    padding:15px 0px;
+    text-align:center;
+
+
+    background-color: #F8F8F8;
+    border-bottom: 1px solid #E0E0E0;
+    border-top: 1px solid #E0E0E0;
+    box-shadow: 0 -1px 0 #FFFFFF inset;
+    min-height: 30px;
+    overflow: hidden;
+}
+.clear{
+    clear:both;
+}
+.aviso_sucesso{
+    margin:10px 0px;
+
+    background:#32CD32;		
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00CD00', endColorstr='#008B00');
+    background: -webkit-gradient(linear, left top, left bottom, from(#00CD00), to(#008B00));
+    background: -moz-linear-gradient(#00CD00, #008B00) repeat scroll 0 0 transparent;
+
+    border:solid 1px #228B22;
+    padding:10px 0px;
+    text-align:center;
+    border-radius:2px;
+    color:#FFF;
+    text-shadow:0px 1px 1px #333333;
+    font-weight: bold;
+    font-family:	'lucida grande',verdana,helvetica,arial,sans-serif;
+}
+.aviso_erro{
+    margin:10px 0px;
+
+    background:#FF4040;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EE2C2C', endColorstr='#CD2626');
+    background: -webkit-gradient(linear, left top, left bottom, from(#EE2C2C), to(#CD2626));
+    background: -moz-linear-gradient(#EE2C2C, #CD2626) repeat scroll 0 0 transparent;
+
+    border:solid 1px #EE0000;
+    padding:10px 0px;
+    text-align:center;
+    border-radius:2px;
+    color:#FFF;
+    text-shadow:0px 1px 1px #333333;
+    font-weight: bold;
+    font-family:	'lucida grande',verdana,helvetica,arial,sans-serif;
+}
+.aviso_alerta{
+    margin:10px 0px;
+
+    background:#FFD700;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFF00', endColorstr='#FFD700');
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFFF00), to(#FFD700));
+    background: -moz-linear-gradient(#FFFF00, #FFD700) repeat scroll 0 0 transparent;
+
+    border:solid 1px #DAA520;
+    padding:10px 0px;
+    text-align:center;
+    border-radius:2px;
+    color:#333333;
+    text-shadow:0px 1px 1px #fff;
+    font-weight: bold;
+    font-family:	'lucida grande',verdana,helvetica,arial,sans-serif;
+}
+.Lista{
+    width:100%;
+    border:solid 1px #dedbdb;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 10px;
+
+}
+.Lista thead th{
+    padding:5px;
+    border-bottom: 1px solid #CACACA !important;
+    text-align:center;
+    font-size: 12px;
+    font-family: arial,cursive,serif,monospace;
+    text-shadow:1px 1px 1px #fff;
+}
+.Lista thead tr{
+
+    background:#E0E0E0;
+    background-repeat:repeat-x;
+    background-image:url('/images/admin/guide.gif');	
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E0E0E0');
+    background: -webkit-gradient(linear, left top, left bottom, from(#FAFAFA), to(#E0E0E0));
+    background: -moz-linear-gradient(#FAFAFA, #E0E0E0) repeat scroll 0 0 transparent;
+
+    font-size: 14px;
+    padding: 10px 10px 11px;
+    text-shadow: 0 1px 0 #FFFFFF;	   
+    height:40px;
+}
+
+.Lista tbody tr:nth-child(even){
+    background:#F8F8FF;
+}
+.Lista tbody td{
+    padding:10px;
+    text-align:center;	
+}
+.Lista tbody td a{
+    text-decoration:none;	
+}/*
+.Lista tbody tr:hover{
+    background:#BCD2EE;
+    color: #000000;
+    cursor: pointer;
+}*/
+.icon{
+    width:20px;
+    vertical-align:middle;
+    border:none;
+}
+.Form{
+    margin:10px 0px;
+    border:solid 1px #dedbdb;
+    border-radius: 5px 5px 5px 5px;		
+}
+.Form h2{
+
+
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+
+    background:#E0E0E0;
+    background-repeat:repeat-x;
+    background-image:url('/images/admin/guide.gif');	
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E0E0E0');
+    background: -webkit-gradient(linear, left top, left bottom, from(#FAFAFA), to(#E0E0E0));
+    background: -moz-linear-gradient(#FAFAFA, #E0E0E0) repeat scroll 0 0 transparent;
+
+    border-bottom: 1px solid #CACACA;
+    font-size: 14px;
+    margin: 0;
+    padding: 10px 10px 11px;
+    text-shadow: 0 1px 0 #FFFFFF;
+
+}
+.Form dl{
+    margin:10px;	
+}
+.Form dl dt{
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size:14px;	
+    margin:5px 0px;
+    color:#666;
+}
+
+.Form input[type=text],input[type=password]{
+
+    width:75%;
+    height:30px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E0E0E0');
+    background: -webkit-gradient(linear, left top, left bottom, from(#FAFAFA), to(#E0E0E0));
+    background: -moz-linear-gradient(#FAFAFA, #E0E0E0) repeat scroll 0 0 transparent;
+    border-top:solid 2px #9a9a9a;
+    border-left:solid 2px #9a9a9a;
+    border-bottom:solid 2px #eeeeee;
+    border-right:solid 2px #eeeeee;	
+
+}
+.Form select{
+
+    /*width:35%;
+    height:30px;
+    background:url('/images/admin/guide.gif');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E0E0E0');		
+background: -moz-linear-gradient(#FAFAFA, #E0E0E0) repeat scroll 0 0 transparent;	
+    border-top:solid 2px #9a9a9a;
+    border-left:solid 2px #9a9a9a;
+    border-bottom:solid 2px #eeeeee;
+    border-right:solid 2px #eeeeee;*/
+
+}
+
+.styleCombobox {
+    width:196px;
+    padding:8px 0px 8px 4px;
+
+    background:url('/images/admin/combobox_background.gif');
+    background-repeat:no-repeat;
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E0E0E0');		
+background: -moz-linear-gradient(#FAFAFA, #E0E0E0) repeat scroll 0 0 transparent;*/	
+    border-top:solid 2px #9a9a9a;
+    border-left:solid 2px #9a9a9a;
+    border-bottom:solid 2px #eeeeee;
+    border-right:solid 2px #eeeeee;
+}
+.styleCombobox span {
+    position:absolute;
+}
+.styleCombobox select {
+
+    width:100%;
+    opacity:0;
+    filter:alpha(opacity=0);
+}
+
+.Form textarea{
+    width:75%;
+    height:250px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E0E0E0');
+    background: -webkit-gradient(linear, left top, left bottom, from(#FAFAFA), to(#E0E0E0));
+    background: -moz-linear-gradient(#FAFAFA, #E0E0E0) repeat scroll 0 0 transparent;
+    border-top:solid 2px #9a9a9a;
+    border-left:solid 2px #9a9a9a;
+    border-bottom:solid 2px #eeeeee;
+    border-right:solid 2px #eeeeee;
+
+}
+.Form button,a.Botao{
+
+    background:#E5E5E5;
+    background-repeat:repeat-x;
+    background-image:url('/images/admin/guide.gif');	
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5F5F5', endColorstr='#E5E5E5');
+    background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#E5E5E5));
+    background: -moz-linear-gradient(#F5F5F5, #E5E5E5) repeat scroll 0 0 transparent;
+
+
+    border-color: #DDDDDD #DDDDDD #BBBBBB;
+    border-image: none;
+    border-radius: 3px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: #666666;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Helvetica,arial,freesans,clean,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: normal;
+    padding: 8px 15px;
+    position: relative;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.9);
+    cursor:pointer;
+}
+/**
+.Form input:focus,textarea:focus,.comboboxFocus{
+         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAD2', endColorstr='#EEE8AA');
+         background: -webkit-gradient(linear, left top, left bottom, from(#FAFAD2), to(#EEE8AA));
+     background: -moz-linear-gradient(#FAFAD2,#EEE8AA) repeat scroll 0 0 transparent;
+         color:#000000;
+
+  }**/
+ul.errors{
+    list-style: none;
+}
+ul.errors li{
+    color: #ff0000;
+}
+

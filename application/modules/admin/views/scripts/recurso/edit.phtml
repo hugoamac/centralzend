@@ -1,0 +1,40 @@
+<script src="/scripts_js/admin/recurso_edit.js" type="text/javascript"></script>
+
+<form action="" method="post" class="Form" id="form">
+    <h2>Editar</h2>
+    <dl>
+        <dt>Area:</dt>
+
+        <dd>
+            <input type="text" name="area" value="<?= $this->recurso["area"] ?>"/>
+        </dd>
+
+        <dt>Recurso:</dt>
+
+        <dd>
+            <input type="text" name="recurso" value="<?= $this->recurso["nome"] ?>"/>
+            <input type="hidden" name="id" value="<?= $this->recurso["id"] ?>"/>
+        </dd>
+
+        <dt>Transação:</dt>
+
+        <dd>
+            <div id="transacao_div">
+                <? if (count($this->transacao) > 0): ?>
+                    <? foreach ($this->transacao as $indice => $transacao): ?>
+                        <p style="margin-bottom:2px">
+                            <input type="hidden" name="id_transacao[]" value="<?= $transacao["id"] ?>"/>
+                            <input type="text" name="transacao[]" value="<?= $transacao["transacao"] ?>"/>
+                            <a href="javascript:void(0);" class="add"><img src="/images/admin/icon_add.png" title="adicionar" class="icon"/></a> 
+                            <? if ($indice > 0): ?>
+                                <a href='javascript:void(0);' class='del'><img src="/images/admin/icon_del.png" title="excluir" class="icon"/></a>
+                            <? endif; ?>
+                        </p>
+                    <? endforeach; ?>
+                <? endif; ?>
+            </div>
+        </dd>
+        <dt></dt>
+        <dd><button type="submit">Salvar</button></dd>
+    </dl>
+</form>

@@ -1,0 +1,38 @@
+<a class="Botao" href="<?= $this->url(array('controller' => 'recurso', 'action' => 'add', 'module' => 'admin'), null, 1) ?>" title="adicionar recurso">Adicionar recurso</a>
+
+<br/><br/>
+
+<? if (count($this->recursos) > 0): ?>
+    <p>
+        <b>Foi encontrado <?= count($this->recursos) ?> Recurso(s).</b>
+    </p>
+
+    <table cellspacing="0" cellpadding="0" class="Lista">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Area</th>
+                <th>Nome</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <? foreach ($this->recursos as $recurso): ?>
+                <tr>
+                    <td><?= $recurso['id'] ?></td>
+                    <td><?= $recurso['area'] ?></td>
+                    <td><?= $recurso['nome'] ?></td>
+                    <th>
+                        <a href="<?= $this->url(array('module' => 'admin', 'controller' => 'recurso', 'action' => 'edit', 'id' => $recurso['id']), null, 1) ?>"><img src="/images/admin/icon_edit.png" class="icon" title="editar"/></a>
+                        <a class="excluir" href="<?= $this->url(array('module' => 'admin', 'controller' => 'recurso', 'action' => 'delete', 'id' => $recurso['id']), null, 1) ?>"><img src="/images/admin/icon_delete.png" class="icon" title="excluir"/></a>
+                    </th>
+                </tr>
+            <? endforeach; ?>
+        </tbody>
+    </table>
+
+<? else: ?>
+
+    <p>Ops! No momento não há nenhum recurso registrado.</p>
+<? endif; ?>
+

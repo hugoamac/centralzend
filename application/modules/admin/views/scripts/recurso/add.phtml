@@ -1,0 +1,30 @@
+<script src="/scripts_js/admin/recurso_add.js" type="text/javascript"></script>
+
+<form action="<?= $this->form->getAction() ?>" method="<?= $this->form->getMethod() ?>" class="Form" id="form">
+    <h2>Adicionar</h2>
+    <dl>
+        <dt><label for="area"><?= $this->form->area->getLabel() ?></label></dt>
+
+        <dd><?= $this->form->area ?></dd>
+
+        <dt><label for="nome"><?= $this->form->nome->getLabel() ?></label></dt>
+
+        <dd><?= $this->form->nome ?></dd>
+
+        <dt><label for="transacao"><?= $this->form->transacao->getLabel() ?></label></dt>
+
+        <dd>
+            <div id="transacao_div">
+                <p style="margin-bottom:2px">
+                    <?= $this->form->transacao ?>
+                    <a href="javascript:void(0);" class="add">
+                        <img src="/images/admin/icon_add.png" title="adicionar" class="icon"/>
+                    </a>                                
+                </p>
+            </div>
+        </dd>
+        
+        <dt></dt>
+        <dd><?= $this->form->submit ?></dd>
+    </dl>
+</form>

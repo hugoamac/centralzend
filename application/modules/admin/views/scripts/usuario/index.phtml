@@ -1,0 +1,50 @@
+<?
+$getGrupo = Application_Model_Grupo::getInstance();
+?>
+
+<a class="Botao" href="<?= $this->url(array('controller' => 'usuario', 'action' => 'add', 'module' => 'admin'), null, 1) ?>" title="adicionar usuario">Adicionar usuario</a>
+
+<br/><br/>
+
+<? if (count($this->usuario) > 0): ?>
+    <p>
+        <b>Foi encontrado <?= count($this->usuario) ?> Usuário(s).</b>
+    </p>
+    
+    <table cellspacing="0" cellpadding="0" class="Lista">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Grupo</th>
+                <th>Nome</th>
+                <th>Login</th>
+                <th>Email</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?
+            foreach ($this->usuario as $usuario):
+
+                $grupo = $getGrupo->recupera($usuario['id_grupo']);
+                ?>
+                <tr>
+                    <td><?= $usuario['id'] ?></td>
+                    <td><?= $grupo['nome'] ?></td>
+                    <td><?= $usuario['nome'] ?></td>
+                    <td><?= $usuario['login'] ?></td>
+                    <td><?= $usuario['email'] ?></td>
+                    <th>
+                        <a href="<?= $this->url(array('module' => 'admin', 'controller' => 'usuario', 'action' => 'edit', 'id' => $usuario['id']), null, 1) ?>"><img src="/images/admin/icon_edit.png" class="icon" title="editar"/></a>
+                        <a class="excluir" href="<?= $this->url(array('module' => 'admin', 'controller' => 'usuario', 'action' => 'delete', 'id' => $usuario['id']), null, 1) ?>"><img src="/images/admin/icon_delete.png" class="icon" title="excluir"/></a>
+                    </th>
+                </tr>
+            <? endforeach; ?>
+        </tbody>
+    </table>
+
+<? else: ?>
+
+    <p>Ops! No momento não há nenhum usuário registrado.</p>
+<? endif; ?>
+
