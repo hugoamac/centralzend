@@ -434,4 +434,36 @@ ul.errors{
 ul.errors li{
     color: #ff0000;
 }
+.Resultado{
+    margin-top:20px;
+    margin-bottom: 10px;
+    
 
+}
+.Resultado p{
+    
+    float: left;
+}
+.Paginacao{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style-type: none;
+    float: right;
+}
+.Paginacao li{
+    float: left;
+}
+.Paginacao li a{
+
+    display: block;   
+    width:30px;
+    height: 30px;
+    text-align: center;
+    margin-right: 2px;
+
+}
+.Paginacao li a.Ativo{
+    
+    color: #ff0000;
+    font-weight: bold;
+}

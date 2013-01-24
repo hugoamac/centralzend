@@ -34,13 +34,13 @@
                 </dl>
             </div>
             <div id="content">
-                <div id="breadcrumb">
+                <!--<div id="breadcrumb">
                     <ol>
                         <li><a href="#"><img src="/images/admin/home.png" alt="Home" class="home" /></a></li>
                         <li><a href="#">Controle de Acesso</a></li>
                         <li><a href="#">Grupos</a></li>
                     </ol>
-                </div>
+                </div>-->
                 <h1><?= $this->titulo ?></h1>
                 <?= $this->partial('includes/mensagens_alerta.phtml', 'admin', array('avisos' => $this->messages)); ?>
                 <?= $this->Layout()->content ?>

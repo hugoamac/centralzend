@@ -151,5 +151,17 @@ abstract class Application_Model_Abstract {
         $this->_log_transacao->insert($log);
     }
 
+    public function paginator($voDados, $page = 1, $qnt = 30) {
+
+        $data = Zend_Controller_Front::getInstance()->getRequest()->getParams();
+
+        $page = (isset($data['pagina'])) ? $data['pagina'] : $page;
+        $paginator = Zend_Paginator::factory($voDados);
+        $paginator->setCurrentPageNumber($page);
+        $paginator->setItemCountPerPage($qnt);
+
+        return $paginator;
+    }
+
 }
 

@@ -1,0 +1,38 @@
+<div class="Resultado">
+
+    <p>
+        <b>Foi encontrado <?= $this->totalItemCount ?>  resultado(s).</b>
+    </p>
+
+    <ul class="Paginacao">
+
+        <? if (isset($this->previous)): ?>
+            <li><a href="<?= $this->url(array('pagina' => $this->first)) ?>" title="Primeira página"><<</a></li>
+        <? endif; ?>
+
+        <? if (isset($this->previous)): ?>
+            <li><a href="<?= $this->url(array('pagina' => $this->previous)) ?>" title="Página anterior"><</a></li>
+        <? endif; ?>
+
+        <? foreach ($this->pagesInRange as $page): ?>
+
+            <? if ($page != $this->current): ?>
+                <li> <a href="<?= $this->url(array('pagina' => $page)) ?>"><?= $page ?></a></li>
+            <? else: ?>
+                <li>  <a href="<?= $this->url(array('pagina' => $page)); ?>" class="Ativo"><?= $page; ?></a></li>
+            <? endif; ?>
+
+        <? endforeach; ?>
+
+        <? if (isset($this->next)): ?>
+            <li><a href="<?= $this->url(array('pagina' => $this->next)); ?>" title="Próxima página">></a></li>
+        <? endif; ?>
+
+        <? if (isset($this->next)): ?>
+            <li><a href="<?= $this->url(array('pagina' => $this->last)); ?>" title="Última página">>></a></li>
+        <? endif; ?>
+
+    </ul>   
+    
+    <div class="clear"></div>
+</div>

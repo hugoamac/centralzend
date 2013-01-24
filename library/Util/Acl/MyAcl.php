@@ -10,12 +10,8 @@ class Util_Acl_MyAcl extends Zend_Acl {
 
     public function __construct() {
 
-        $this->_db = Zend_Db::factory('Pdo_Mysql', array(
-                    'host' => 'localhost',
-                    'username' => 'root',
-                    'password' => 'lordswxp',
-                    'dbname' => 'zend'
-                ));
+        $registry = Zend_Registry::getInstance();
+        $this->_db = $registry->get('Db');
     }
 
     private function initRoles() {
