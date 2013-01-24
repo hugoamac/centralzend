@@ -9,9 +9,8 @@ define('APPLICATION_ENV','testing');
    
 
 // Ensure library/ is on include_path
-set_include_path(implode(PATH_SEPARATOR, array(
-            realpath(APPLICATION_PATH . '/../../../../../projetos/library1.10.11'),
-            //realpath(APPLICATION_PATH . '/../library'),
+set_include_path(implode(PATH_SEPARATOR, array(            
+            realpath(APPLICATION_PATH . '/../library'),
             get_include_path(),
         )));
 
