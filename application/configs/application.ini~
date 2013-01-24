@@ -30,8 +30,8 @@ resources.frontController.moduleDirectory = APPLICATION_PATH "/modules"
 ;BANCO DE DADOS
 resources.db.adapter="pdo_mysql"
 resources.db.params.host="localhost"
-resources.db.params.username="root"
-resources.db.params.password="lordswxp"
+resources.db.params.username="hugo"
+resources.db.params.password="teste"
 resources.db.params.dbname="zend"
 resources.db.params.charset = "utf8"
 resources.db.isDefaultTableAdapter=true
