@@ -36,22 +36,5 @@ class Application_Model_Grupo extends Application_Model_Abstract {
         return 0;
     }
 
-    public function pegaUsuario() {
-        /*
-          $select = $this->getSelect();
-          $select->from('usu_usuario',array('nome'))
-          ->where("id=?",3);
-
-          $stm = $select->query();
-
-          return $stm->fetch(); */
-
-        $sql = $this->_dbTable->getSql();
-        
-        $r = $this->recuperaTodos($sql);
-        
-        return $r;
-    }
-
 }
 

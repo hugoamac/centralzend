@@ -170,6 +170,8 @@ abstract class Application_Model_Abstract {
     	return $adapter->select();
     
     }
+   
+    
 
 }
 
