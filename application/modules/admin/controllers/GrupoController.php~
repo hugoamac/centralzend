@@ -9,7 +9,7 @@ class Admin_GrupoController extends Zend_Controller_Action {
     }
 
     public function indexAction() {
-
+        
         $this->view->titulo = "Grupos de Usuários";
 
         $model = new Application_Model_Grupo();
@@ -17,8 +17,8 @@ class Admin_GrupoController extends Zend_Controller_Action {
     }
 
     public function addAction() {
-
-        $this->view->titulo = "Grupo de Usuário";
+        
+         $this->view->titulo = "Grupo de Usuário";
 
         $form = new Util_Forms_Grupo();
         $this->view->form = $form;
@@ -29,7 +29,7 @@ class Admin_GrupoController extends Zend_Controller_Action {
                 $model = new Application_Model_Grupo();
                 unset($data["submit"]);
                 try {
-
+                                   
                     $model->salvar($data);
                     $this->_helper->FlashMessenger(array('sucesso', 'Operação efetuada com sucesso!'));
                 } catch (Exception $e) {
@@ -46,8 +46,8 @@ class Admin_GrupoController extends Zend_Controller_Action {
     }
 
     public function editAction() {
-
-        $this->view->titulo = "Grupo de Usuário";
+        
+         $this->view->titulo = "Grupo de Usuário";
 
         $model = new Application_Model_Grupo();
         $form = new Util_Forms_Grupo();
@@ -97,14 +97,14 @@ class Admin_GrupoController extends Zend_Controller_Action {
             $this->_redirect("/admin/grupo/");
         }
     }
-
-    public function nomeAction() {
-        
-        $model = new Application_Model_Grupo();
-        
-       var_dump($model->pegaUsuario());
-        
-        die();
+    
+    public function nomeAction()
+    {
+                   $model = new Application_Model_Grupo();
+    		$r = $model->pegaUsuario();
+    		
+    		var_dump($r);die();
+    
     }
 
 }

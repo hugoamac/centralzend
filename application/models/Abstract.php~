@@ -82,7 +82,6 @@ abstract class Application_Model_Abstract {
 
         return $this->_dbTable->getAdapter()->rollBack();
     }
-	
 
     public function recuperaPor($where = null, $ordem = null) {
         $res = $this->_dbTable->fetchRow($where, $ordem);
@@ -162,13 +161,6 @@ abstract class Application_Model_Abstract {
         $paginator->setItemCountPerPage($qnt);
 
         return $paginator;
-    }
-    
-    public function getSelect()
-    {
-    	$adapter = $this->_dbTable->getDefaultAdapter();
-    	return $adapter->select();
-    
     }
 
 }
