@@ -61,11 +61,31 @@ abstract class Application_Model_Abstract {
 
     abstract public function insere(Array $dados);
 
-    public function recuperaTodos($where = null, $ordem = null, $limit = null) {
-        $res = $this->_dbTable->fetchAll($where, $ordem, $limit);
-        if (count($res))
-            return $res->toArray();
-        return array();
+    public function recuperaTodos($where = null, $ordem = null, $limit = null, $paginator = null) {
+
+        if ($paginator && is_array($where)) {
+
+            $select = $this->_dbTable->select();
+
+            if (count($where) > 0) {
+                foreach ($where as $col => $val) {
+
+                    $select->where($col, $val);
+                }
+            }
+
+            if ($ordem) {
+
+                $select->order($ordem);
+            }
+
+            return $this->_dbTable->fetchAll($select);
+        } else {
+            $res = $this->_dbTable->fetchAll($where, $ordem, $limit);
+            if (count($res))
+                return $res->toArray();
+            return array();
+        }
     }
 
     public function beginTransaction() {
@@ -151,7 +171,7 @@ abstract class Application_Model_Abstract {
         $this->_log_transacao->insert($log);
     }
 
-    public function paginator($voDados, $page = 1, $qnt = 30) {
+    public function paginator($voDados, $page = 1, $qnt = 20) {
 
         $data = Zend_Controller_Front::getInstance()->getRequest()->getParams();
 
@@ -161,6 +181,16 @@ abstract class Application_Model_Abstract {
         $paginator->setItemCountPerPage($qnt);
 
         return $paginator;
+    }
+
+    public function getAdapter() {
+
+        return $this->_dbTable->getDefaultAdapter();
+    }
+
+    public function getSelect() {
+        $adapter = $this->_dbTable->getDefaultAdapter();
+        return $adapter->select();
     }
 
 }

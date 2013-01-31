@@ -13,9 +13,9 @@ class Admin_LogController extends Zend_Controller_Action {
     public function indexAction() {
 
         $this->view->titulo = "Log do sistema";
-        $voLog = $this->_model->recuperaTodos(array(), "data_criacao desc");
+        $voLog = $this->_model->recuperaTodos(array(), "id desc", null, 1);
         $page = isset($this->_data["pagina"]) ? $this->_data["pagina"] : 1;
-        $this->view->logs = $this->_model->paginator($voLog, $page, 20);
+        $this->view->logs = $this->_model->paginator($voLog, $page);
     }
 
     public function detalheAction() {
