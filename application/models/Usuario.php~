@@ -18,7 +18,13 @@ class Application_Model_Usuario extends Application_Model_Abstract {
             $dados["senha"] = md5($dados["senha"]);
         return $this->_dbTable->insert($dados);
     }
-
+    public function listar()
+    {
+    	$sql = $this->_dbTable->getSql();
+ 
+    	return $this->recuperaTodos($sql);
+    
+    }
 
 }
 

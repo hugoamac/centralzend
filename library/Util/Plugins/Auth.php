@@ -32,11 +32,14 @@ class Util_Plugins_Auth extends Zend_Controller_Plugin_Abstract {
         $this->_acl = Zend_Registry::get('acl');
 
         $bool = $this->_dbRecurso->recuperaPor(array("area=?" => $this->_module, "nome=?" => $this->_controler));
+
+
         if ($bool) {
+
 
             $bool_transaction = $this->_dbTransacao->recuperaPor(array("id_recurso=?" => $bool["id"], "transacao=?" => $this->_action));
         }
-        if (isset($bool_transaction)) {
+        if (isset($bool_transaction) && !empty($bool_transaction)) {
 
             $hasIdentity = Zend_Auth::getInstance()->setStorage(new Zend_Auth_Storage_Session($this->_module))->hasIdentity();
 
