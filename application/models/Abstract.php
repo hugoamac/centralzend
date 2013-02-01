@@ -184,15 +184,6 @@ abstract class Application_Model_Abstract {
         return $paginator;
     }
     
-    public function getSelect()
-    {
-    	$adapter = $this->_dbTable->getDefaultAdapter();
-    	return $adapter->select();
-    
-    }
-   
-    
-
     public function getAdapter() {
 
         return $this->_dbTable->getDefaultAdapter();
